@@ -1,0 +1,11 @@
+body {
+  .footer-container {
+    width: clamp(100px, 30%, 200px);
+    height: 100px;
+    background: var(--globalColor);
+    user-select: none;
+  }
+  .Footer_Cs {
+    width: 100px;
+  }
+}

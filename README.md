@@ -25,3 +25,20 @@ vite 读取 vite.config.js 时，优先使用 node 去解析文件。如果发�
 
 **服务端**：使用 loadEnv 读取配置，读取.env 文件、.env.[mode]文件、process.env 合并返回最新的 env，通过第三个参数控制导出变量前缀，默认`VITE_`，使用方法`loadEnv(mode, process.cwd(), '')`
 **客户端**： env 会被注入到`import.meta.env`中，通过 envPrefix 控制导出变量前缀，默认是 `VITE_`，不能设置为''，防止敏感配置信息外泄
+
+### Vite 处理 css
+
+普通以.css 结尾的文件处理方式：
+
+1. Vite 读取 js 中引入的 css 文件
+2. 读取 css 文件内容，并创建一个 style 标签将内容防止到 style 标签内
+3. 将 style 标签插入到 head 中
+4. 将 css 文件中的内容直接替换成 js 脚本（方便热更新或 css 模块化），同时设置 Content-Type 为 js，让浏览器以 js 的方式执行 css 后缀的文件
+
+.module.css（任何以 .module.css 为后缀名的 CSS 文件都被认为是一个 CSS modules 文件） 结尾的文件处理方式：
+
+1. 将 .module.css 中的类名做一个替换 `footer->\_footer_de3d345_1`
+2. 同时创建一个映射的对象`{"footer": "\_footer_de3d345_1"}`
+3. 将替换过后的内容放入 style 标签内，在把 style 放入 head 里面
+4. 将.module.css 中的内容替换成 js 脚本
+5. 将创建的映射对象在脚本中默认导出

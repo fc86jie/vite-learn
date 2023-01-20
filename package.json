@@ -6,15 +6,21 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "serve": "nodemon ./dev-server/index.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "postcss-preset-env": "^7.8.3",
+    "sass": "^1.57.1",
     "vite": "^4.0.4"
   },
   "dependencies": {
+    "koa": "^2.14.1",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21"
   }
