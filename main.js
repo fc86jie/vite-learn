@@ -2,11 +2,12 @@
  * @Author: wangrenjie86@gmail.com
  * @Date: 2023-01-15 15:00:38
  * @LastEditors: wangrenjie86@gmail.com
- * @LastEditTime: 2023-01-20 11:42:04
+ * @LastEditTime: 2023-01-28 19:27:31
  * @FilePath: \main.js
  * @Description:
  */
 
+import { getURLParameters } from '@utils';
 import './App.vue';
 import styleObj from './index.module.scss';
 import './variable.css';
@@ -16,3 +17,5 @@ const ele = document.createElement('div');
 ele.classList.add(styleObj.footerContainer);
 
 document.body.appendChild(ele);
+
+getURLParameters(window.location.href);

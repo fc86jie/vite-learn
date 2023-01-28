@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
@@ -17,7 +18,8 @@
     "postcss-cli": "^10.1.0",
     "postcss-preset-env": "^7.8.3",
     "sass": "^1.57.1",
-    "vite": "^4.0.4"
+    "vite": "^4.0.4",
+    "vite-aliases": "^0.10.0"
   },
   "dependencies": {
     "koa": "^2.14.1",

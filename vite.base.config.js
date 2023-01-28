@@ -2,7 +2,7 @@
  * @Author: wangrenjie86@gmail.com
  * @Date: 2023-01-15 20:10:36
  * @LastEditors: wangrenjie86@gmail.com
- * @LastEditTime: 2023-01-20 11:37:45
+ * @LastEditTime: 2023-01-28 19:22:36
  * @FilePath: \vite.base.config.js
  * @Description:
  */
@@ -11,11 +11,18 @@ import { dirname, resolve } from 'node:path';
 import postcssPresetEnv from 'postcss-preset-env';
 import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
+import { ViteAliases } from 'vite-aliases';
+import myViteAliases from './plugins/viteAliases';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineConfig({
+  // resolve: {
+  //   alias: {
+  //     '@': resolve(__dirname, './src'),
+  //   },
+  // },
   // optimizeDeps: {
   //   exclude: ['lodash-es'], // 制定数组中的依赖不进行预构建
   // },
@@ -47,4 +54,15 @@ export default defineConfig({
       ],
     },
   },
+  plugins: [
+    myViteAliases(),
+    // ViteAliases()
+  ],
+  // build: {
+  //   rollupOptions: {
+  //     output: {
+  //       assetFileNames: '[hash].[name].[ext]',
+  //     },
+  //   },
+  // },
 });
