@@ -2,7 +2,7 @@
  * @Author: wangrenjie86@gmail.com
  * @Date: 2023-01-28 17:22:28
  * @LastEditors: wangrenjie86@gmail.com
- * @LastEditTime: 2023-01-28 19:20:20
+ * @LastEditTime: 2023-01-29 18:34:10
  * @FilePath: \plugins\viteAliases.js
  * @Description:
  */

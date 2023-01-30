@@ -2,7 +2,7 @@
  * @Author: wangrenjie86@gmail.com
  * @Date: 2023-01-15 20:10:36
  * @LastEditors: wangrenjie86@gmail.com
- * @LastEditTime: 2023-01-28 19:22:36
+ * @LastEditTime: 2023-01-30 12:12:58
  * @FilePath: \vite.base.config.js
  * @Description:
  */
@@ -12,7 +12,11 @@ import postcssPresetEnv from 'postcss-preset-env';
 import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
 import { ViteAliases } from 'vite-aliases';
+import Inspect from 'vite-plugin-inspect';
+import myCreateHtml from './plugins/createHtml';
 import myViteAliases from './plugins/viteAliases';
+
+import checker from 'vite-plugin-checker';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -55,8 +59,16 @@ export default defineConfig({
     },
   },
   plugins: [
+    Inspect(),
     myViteAliases(),
     // ViteAliases()
+    myCreateHtml({
+      title: 'my title',
+    }),
+    checker({
+      // e.g. use TypeScript check
+      typescript: true,
+    }),
   ],
   // build: {
   //   rollupOptions: {
