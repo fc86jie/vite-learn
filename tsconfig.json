@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "skipLibCheck": true, // 跳过node_modules目录检查
-    "module": "ESNext"
+    "module": "ESNext",
+    "moduleResolution": "node"
   }
 }

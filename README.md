@@ -42,3 +42,28 @@ vite 读取 vite.config.js 时，优先使用 node 去解析文件。如果发�
 3. 将替换过后的内容放入 style 标签内，在把 style 放入 head 里面
 4. 将.module.css 中的内容替换成 js 脚本
 5. 将创建的映射对象在脚本中默认导出
+
+### 性能优化
+
+- 分包：把不经常变化的文件单独打包
+
+```javascript
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: id => {
+          // node_modules的package分包
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+        },
+      },
+    },
+  },
+});
+```
+
+- gzip 压缩：将静态文件压缩，减少体积
+- 动态导入
+- cdn 加速

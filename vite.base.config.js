@@ -2,7 +2,7 @@
  * @Author: wangrenjie86@gmail.com
  * @Date: 2023-01-15 20:10:36
  * @LastEditors: wangrenjie86@gmail.com
- * @LastEditTime: 2023-01-30 12:12:58
+ * @LastEditTime: 2023-01-30 20:48:26
  * @FilePath: \vite.base.config.js
  * @Description:
  */
@@ -70,11 +70,18 @@ export default defineConfig({
       typescript: true,
     }),
   ],
-  // build: {
-  //   rollupOptions: {
-  //     output: {
-  //       assetFileNames: '[hash].[name].[ext]',
-  //     },
-  //   },
-  // },
+  build: {
+    minify: false,
+    rollupOptions: {
+      output: {
+        assetFileNames: '[hash].[name].[ext]',
+        manualChunks: id => {
+          // node_modules的package分包
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+        },
+      },
+    },
+  },
 });
